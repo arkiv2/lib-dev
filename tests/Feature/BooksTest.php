@@ -12,7 +12,6 @@ class BooksTest extends TestCase
 {
 	use DatabaseTransactions;
 	
-	// use DatabaseTransactions;
     /**
      * Test it_shows_all_books
      *

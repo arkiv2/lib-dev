@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Book;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
+    public function borrow(Book $book)
+    {
+        return $this->books()->toggle($book);
+    }
 }

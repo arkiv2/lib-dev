@@ -18,7 +18,7 @@ class BookModelTest extends TestCase
     public function test_it_can_find_book_by_its_id()
     {
         $book = factory(Book::class)->create(['title' => 'This is a book']);
-        $queriedBook = Book::findByID(2);
+        $queriedBook = Book::findByID($book->id);
 
         $this->assertEquals($queriedBook->id, $book->id);
         $this->assertEquals($queriedBook->title, $book->title);
