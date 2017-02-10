@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function() {
+// 	factory('App\Book', 2)->create(['title' => 'Book1', 'title' => 'Book2']);
+// });
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('books', 'BooksController@index');
+    Route::get('books/{id}', 'BooksController@show');
 });
